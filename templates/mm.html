@@ -1,0 +1,35 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<style>
+	a:link,a:visited,a:active{color:#aaa;text-decoration: none;}
+	a:hover{color:#ffaa88;text-decoration: underline;}
+</style>
+<script type="text/javascript" src="/static/lightbox/lb/prototype.js"></script>
+<script type="text/javascript" src="/static/lightbox/lb/scriptaculous.js?load=effects"></script>
+<script type="text/javascript" src="/static/lightbox/lb/lightbox.js"></script>
+<link rel="stylesheet" href="/static/lightbox/css/lightbox.css" type="text/css" media="screen" />
+</head>
+
+<body style="margin:0;padding:0">
+<div align="center" style="width:100%;height:150%;margin:0;padding:30 0 0 0;background-color:#222;">
+	<div  style="width:100%;height:100%;margin:0;padding:0 0 0 0; ">
+		<div style="width:705px;height:720px;background-color:#666;margin-top:0px;border-radius: 11px;">
+			{% for album in albums %}  {# 迭代 图片 变量 #}
+				<div style="float:left;height:160px;width:120px;background-color:#ddd;margin:10px;" >
+					<a href= "{{ album.cover }}" rel="lightbox{{ album.id }}" name="content">
+						<img style="height:160px;width:120px;-webkit-box-shadow:5px 2px 6px #000;-moz-box-shadow:5px 2px 6px #000;" 
+						src= "{{ album.cover }}" title="{{ album.title }}" />
+					</a>
+					{% for pic in album.pic %} 
+						<a style="display:none"	title="{{ album.title }}" 
+						rel="lightbox{{ album.id }}" href="{{ pic }}" /></a>	
+					{% endfor %}
+				</div>
+			{% endfor %}  {# 使用 endfor 标签结束 for 语句 #}
+			<div style="clear:both"></div>
+		</div>
+		<div style="text-align:center;margin:5px">
+		<div>
+	</div>
+</div>
+</body>
