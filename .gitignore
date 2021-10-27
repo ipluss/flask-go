@@ -1,0 +1,5 @@
+.azure
+.git
+__pycache__
+run.bat
+azupload.bat
