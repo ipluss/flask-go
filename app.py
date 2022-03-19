@@ -1,6 +1,8 @@
 from flask import *
 import redis   # 导入redis 模块
 import json
+import time
+import sys,os
 r = redis.Redis(host='localhost', port=6379, decode_responses=True)  
 
 app = Flask(__name__)
