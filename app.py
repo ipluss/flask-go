@@ -1,9 +1,7 @@
 from flask import *
-import redis   # 导入redis 模块
 import json
 import time
 import sys,os
-r = redis.Redis(host='localhost', port=6379, decode_responses=True)  
 
 app = Flask(__name__)
 
@@ -51,29 +49,6 @@ def index():
 		#return redirect(url_for('index'))  # 重定向回主页
 
 	return render_template('index.html', name=name, movies=movies)
-	
-	
-@app.route('/model/<id>')
-def show_model(id):
-	js = r.get('P'+id)  # 取出键 id 对应的值
-	j = json.loads(js)
-	return render_template('model.html', pics=j['pic'], title=j['title'])
-
-@app.route('/mm/')
-def show_mm():
-	shows = []
-	for i in range(20):
-		js = r.get(r.randomkey())  
-		j = json.loads(js)
-		shows.append(j)
-	return render_template('mm.html', albums=shows)
-	
-	
-	
-	
-@app.route('/user/<name>')
-def user_page(name):
-    return url_for("index") + '<br> User: %s' % escape(name)
 	
 	
 @app.errorhandler(404)  # 传入要处理的错误代码
