@@ -23,7 +23,7 @@ app.secret_key = 'dev'
 
 name = 'Grey Li'
 movies = [
-    {'title': 'My Neighbor Totoro', 'year': '1988'},
+    {'title': 'My Neighbor Totoro', 'year': '1968'},
     {'title': 'Dead Poets Society', 'year': '1989'},
     {'title': 'A Perfect World', 'year': '1993'},
     {'title': 'Leon', 'year': '1994'},
